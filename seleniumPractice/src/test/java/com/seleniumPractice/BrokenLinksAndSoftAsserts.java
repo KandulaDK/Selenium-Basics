@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -43,24 +44,34 @@ public class BrokenLinksAndSoftAsserts {
 		
 		
 		for(WebElement eachLink : links) {
-			String url = eachLink.getAttribute("href");
+			String linkurl = eachLink.getAttribute("href");
 			
-			HttpURLConnection conn =(HttpURLConnection)new URL(url).openConnection();
+//			HttpURLConnection conn =(HttpURLConnection)new URL(url).openConnection();
+//			
+//			conn.setRequestMethod("HEAD");
+//			conn.connect();
+//			System.out.println(conn.getResponseMessage());
+//			int responseCode = conn.getResponseCode();
+//			System.out.println(responseCode);
 			
-			conn.setRequestMethod("HEAD");
-			conn.connect();
-			System.out.println(conn.getResponseMessage());
-			int responseCode = conn.getResponseCode();
-			System.out.println(responseCode);
+			
+			URL url = new URL(linkurl);
+			URLConnection urlConnection = url.openConnection();
+			HttpURLConnection httpURLConnection =  (HttpURLConnection) urlConnection;
+			httpURLConnection.setConnectTimeout(5000);
+			httpURLConnection.connect();
+			int responseCode = httpURLConnection.getResponseCode();
 			 
-			sa.assertTrue(responseCode <= 400, "The broken link text: " + eachLink.getText()+ " with response code of " + responseCode);
+			sa.assertTrue(responseCode == 200, "The broken link text: " + eachLink.getText()+ " with response code of " + responseCode + httpURLConnection.getResponseMessage());
 
 //			if(responseCode >= 400) {
 //				System.out.println("The broken link text: " + eachLink.getText()+ " with response code of " + responseCode);
 ////				Assert.assertTrue(false);
 //			}
+			httpURLConnection.disconnect();
 			
 		}
+		dinnu.quit();
 		sa.assertAll();
 	}
 

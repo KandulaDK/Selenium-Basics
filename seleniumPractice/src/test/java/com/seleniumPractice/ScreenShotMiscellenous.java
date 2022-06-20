@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ScreenShotMiscellenous {
-
+	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		WebDriverManager.chromedriver().setup();

@@ -50,7 +50,7 @@ public class Practicing {
 		
 		
 		
-		//----------frag and drop----------
+		//----------drag and drop----------
 //		driver.get("https://www.globalsqa.com/demo-site/draganddrop/");
 //		
 //		driver.findElement(By.id("Propagation")).click();

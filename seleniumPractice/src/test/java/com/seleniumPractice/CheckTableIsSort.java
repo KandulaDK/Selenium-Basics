@@ -42,8 +42,7 @@ public class CheckTableIsSort {
 		List<String> price;
 		do {
 			List<WebElement> row = dinnu.findElements(By.xpath("//tr //td[1]"));
-			price = row.stream().filter(s -> s.getText().startsWith("C")).map(s -> getThePrice(s))
-					.collect(Collectors.toList());
+			price = row.stream().filter(s -> s.getText().startsWith("C")).map(s -> getThePrice(s)).collect(Collectors.toList());
 
 			if(price.size() < 1) {
 				dinnu.findElement(By.cssSelector("a[aria-label$='Next']")).click();

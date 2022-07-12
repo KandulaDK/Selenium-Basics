@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.seleniumPractice.JavaStrems">
+      <class name="driver.Driver">
         <methods>
-          <include name="StreamMap"/>
+          <include name="getAutomationProperties"/>
         </methods>
-      </class> <!-- com.seleniumPractice.JavaStrems -->
+      </class> <!-- driver.Driver -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,4 +1,4 @@
-package com.seleniumPractice;
+package driver;
 
 //import io.opentelemetry.exporter.logging.SystemOutLogExporter;
 

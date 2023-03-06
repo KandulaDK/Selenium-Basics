@@ -26,7 +26,8 @@ public class ScreenShotMiscellenous {
 		
 		File src = ((TakesScreenshot)dinnu).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(src, new File("C:\\Users\\DinnuBunny\\Music/screenshot1.png"));
-
+		
+		dinnu.quit();
 	}
 
 }

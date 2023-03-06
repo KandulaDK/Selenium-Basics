@@ -30,9 +30,9 @@ public class CheckTableIsSort {
 
 		List<WebElement> items = dinnu.findElements(By.xpath("//tr //td[1]"));
 
-		List<String> itemNames = items.stream().map(s -> s.getText()).collect(Collectors.toList());
+		List<Object> itemNames = items.stream().map(s -> s.getText()).collect(Collectors.toList());
 
-		List<String> sortedItems = itemNames.stream().sorted().collect(Collectors.toList());
+		List<Object> sortedItems = itemNames.stream().sorted().collect(Collectors.toList());
 
 		// comparing orginal list vs sorted list
 		Assert.assertTrue(itemNames.equals(sortedItems));
